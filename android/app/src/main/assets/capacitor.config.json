@@ -1,6 +1,6 @@
 {
 	"appId": "com.example.app",
-	"appName": "Test Cell World",
+	"appName": "Simplified Cell World",
 	"webDir": "dist",
 	"bundledWebRuntime": false
 }

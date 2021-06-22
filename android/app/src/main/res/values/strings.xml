@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Test Cell World</string>
-    <string name="title_activity_main">Test Cell World</string>
+    <string name="app_name">Simplified Cell World</string>
+    <string name="title_activity_main">Simplified Cell World</string>
     <string name="package_name">com.example.app</string>
     <string name="custom_url_scheme">com.example.app</string>
 </resources>

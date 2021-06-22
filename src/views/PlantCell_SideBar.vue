@@ -10,14 +10,14 @@
         <div class="sidebar_container">
           <div class="animalcell_content">
     // Animal Cell
-            <div class="animal_top">
+            <div class="animal_slots">
               <div class="title-container">
-                  <p class="title" style="color: '#ffffff;">Animal Cell</p>
+                  <p class="title" style="color: '#ffffff;">Plant Cell</p>
               </div>
                 <div class="definition">
                   <p>Eukaryotic cells that has a true, membrane-bound nucleus along with other cellular organelles, but has no cell wall.</p>
-                    <button class="plant_button">
-                      <router-link to="/plantcell">Explore Plant Cell</router-link>
+                    <button class="animal_button">
+                      <router-link to="/">Explore Animal Cell</router-link>
                     </button>
                 </div>
             </div>
@@ -171,7 +171,7 @@ allows proteins and nucleic acids to pass through.</p>
                     <Dropdown_down v-if="this.er_tab" style="width: 25px;" />
                     <Dropdown_up v-else style="width: 25px;" />
                 </div>
-                  <div class="definition" v-show="this.er_tab">
+                  <div class="definition" v-show="this.mitochondria_tab">
                     <p>
                       Endoplasmic reticulum is a network of tubules and flattened sacs that plays a major role in the production, processing, and transport of proteins and lipids.
                     </p>           
@@ -186,7 +186,7 @@ allows proteins and nucleic acids to pass through.</p>
                     <p class="title" style="color: '#ffffff;">
                       Golgi Apparatus
                     </p>
-                    <Dropdown_down v-if="this.golgi_tab" style="width: 25px;" />
+                    <Dropdown_down v-if="this.er_tab" style="width: 25px;" />
                     <Dropdown_up v-else style="width: 25px;" />
                 </div>
                   <div class="definition" v-show="this.golgi_tab">
@@ -303,6 +303,9 @@ allows proteins and nucleic acids to pass through.</p>
         </div>
       </div>
     </div>
+<div class="routing">
+Please Wait
+</div>
       <Renderer
         ref="renderer"
         antialias
@@ -323,7 +326,7 @@ allows proteins and nucleic acids to pass through.</p>
             :cast-shadow="true"
             :shadow-map-size="{ width: 1024, height: 1024 }"
           />
-          <GltfModel :position="{ x: 0, y: 1, z: 2 }" src="humanCell.glb"   @progress="onProgress"  @load="onReady" />
+          <GltfModel :position="{ x: 0, y: 1, z: 2 }" src="PlantCell_scaled.glb"   @progress="onProgress"  @load="onReady" />
         </Scene>
         <EffectComposer>
           <RenderPass />
@@ -427,6 +430,20 @@ export default {
 };
 </script>
 <style>
+.loader_routes{
+  z-index: 102;
+  background: red;
+}
+.animal_button{
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  background: #E62117;
+  cursor: pointer;
+  color: #ffffff;
+}
 .animallcell_parent {
   margin: 0;
   overflow: hidden;
@@ -434,16 +451,18 @@ export default {
   justify-content: center;
   background: #000000;
 }
-    .nav_button{
-    z-index: 50;
+.container_all{ 
+    overflow: hidden;
+    margin: 0;
+    background: #000000;
+  }
+    .test_button{
+    z-index: 40;
     position: absolute;
-    top: 5%;
-    left: 3%;
-    border: none;
-    border-radius: 15px;
-    width: 50px;
-    height: 50px;
-    padding: 10px;
+    left: 0;
+    }
+    .test_button > div{
+    padding: 30px;
     }
     .sidebar_parent {
       width: 35%;
@@ -452,100 +471,57 @@ export default {
       z-index: 40;
       overflow-x: hidden;
       background-color: #000000;
+      margin: 0px;
       top: 0;
-      right: 0;
+      left: 0;
     }
         .sidebar_container {
+        padding: 30px;
         display: flex;
         justify-content: space-around;
+        display: flex;
         align-items: flex-start;
         flex-direction: column;
         }
-          .animalcell_content {
-            width: 100%;
-            padding: 0px;
-          }
-          .animal_slots{
-            width: 100%;
-            cursor: pointer
-          }
-          .title-container{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            margin: -15px 0 -15px 0;
-          }
-          .title{
-            color: #ffffff;
-            font-weight: bold;
-            font-size: 20px;
-          }
-          .definition {
-            color: #ffffff;
-            font-size: 14px;
-            padding-bottom: 20px;
-          }
-          .slot_button{
-            padding: 8px;
-            border: none;
-            border-radius: 10px;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-          }
-          .plant_button{
-            padding: 8px;
-            border: none;
-            border-radius: 10px;
-            font-size: 12px;
-            font-weight: bold;
-            background: #1DB954;
-            cursor: pointer;
-            color: #ffffff;
-          }
-
-
-
-      canvas{
-          position: fixed;
-          z-index: 0;
-          background: #000000;
-          inset: 0;
+        .sidebar_container > div {
+        display: flex;
+        justify-content: space-around;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        }
+        .sidebar_container > div > div > p {
+        display: flex;
+        justify-content: space-around;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        text-align: left;
+        color: #ffffff;
         }
       .sidebar_parent a {
         font-weight: bold;
         color: #ffffff;
-        text-decoration: none;
       }
       .sidebar_parent a.router-link-exact-active {
-        color: #ffffff;
+        color: #42b983;
       }
-      ::-webkit-scrollbar {
-  width: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgb(36, 36, 36); 
-  border-radius: 10px;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgb(22, 22, 22); 
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(15, 15, 15); 
-}
+ canvas{
+    position: fixed;
+    z-index: 0;
+    background: #000000;
+    inset: 0;
+  }
 .white{
   height: 100vh;
   width: 100vw;
   background: #ffffff;
   z-index: 100;
-  position: fixed;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  top: 0;
 }
 </style>

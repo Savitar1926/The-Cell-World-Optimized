@@ -1,23 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import AnimalCell from '../views/AnimalCell.vue'
-import PlantCell from '../views/PlantCell.vue'
 import AS from '../views/AnimalCell_SideBar.vue'
+import PlantCell from '../views/PlantCell_SideBar.vue'
 
 const routes = [{
         path: '/',
-        name: 'AnimalCell',
-        component: AnimalCell
+        name: 'AS',
+        component: AS
     },
     {
         path: '/plantcell',
         name: 'PlantCell',
         component: PlantCell
     },
-    {
-        path: '/as',
-        name: 'AS',
-        component: AS
-    },
+
 
 ]
 
