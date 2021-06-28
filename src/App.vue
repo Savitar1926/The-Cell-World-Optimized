@@ -1,6 +1,8 @@
 <template>
   <div class="container_all">
+  <transition name="fade" mode="out-in">
     <router-view class="scene"/>
+  </transition>
   </div>
 </template>
 
@@ -28,11 +30,21 @@ export default {
 
 
 <style>
+@font-face{
+  font-family: 'Poppins';
+  src: url(./assets/Poppins-Regular.ttf)
+}
+  html{
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+  }
   body{
     background: #000000;
   }
+  button {
+    font-family: Poppins;
+  }
   #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: Poppins;
     -webkit-font-smoothing: antialiased;
     background: #000000;
   }
@@ -41,7 +53,13 @@ export default {
     margin: 0 auto;
     background: #000000;
   }
-
+  .fade-enter, .fade-leave-to{
+    opacity: 0;
+    transform: translateX(2em);
+  }
+  .fade-enter-active, fade-leave-active{
+    transition: all .3s ease;
+  }
   canvas{
     position: fixed;
     z-index: 0;

@@ -306,7 +306,7 @@ allows proteins and nucleic acids to pass through.</p>
       <Renderer
         ref="renderer"
         antialias
-        :orbit-ctrl="{ enableDamping: true, enablePan: false, dampingFactor: 0.05, maxDistance: 15, minDistance: 10, minPan: 3  }"
+        :orbit-ctrl="{ enableDamping: true, enablePan: false, dampingFactor: 0.05, maxDistance: 15, minDistance: 5, minPan: 3  }"
         resize="window"
         :pointer="{ intersectRecursive: true }">      
         <Camera   ref="camera"  :position="{ x: 10, y: 1, z: 2 }"/>
@@ -316,6 +316,7 @@ allows proteins and nucleic acids to pass through.</p>
             :position="{ y: 250, z: 0 }"
             :cast-shadow="true"
             :shadow-map-size="{ width: 1024, height: 1024 }"
+            :intensity="0.5"
           />
           <SpotLight
             color="#ffffff"
@@ -327,7 +328,7 @@ allows proteins and nucleic acids to pass through.</p>
         </Scene>
         <EffectComposer>
           <RenderPass />
-          <UnrealBloomPass :strength="0.8" :radius="1" />
+          <UnrealBloomPass :strength="0.5" :radius="1" />
         </EffectComposer>
       </Renderer>
   </div>
@@ -392,7 +393,8 @@ export default {
   move_camera(){
     console.log(this.$refs.camera.camera.position.z)
     console.log(this.$refs.camera.camera.position.y)
-    gsap.to(this.$refs.camera.camera.position, {x: 1.5, y: -0.3383049367400532, z: 12, duration: 0.5, ease: "expo.out"})
+    console.log(this.$refs.camera.camera.minDistance)
+    gsap.to(this.$refs.camera.camera.position, {x: 1.5, y: -0.3383049367400532, z: 12, duration: 2, ease: "expo.out"})
   },
   onProgress(){
     console.log("Loading Animal Cell")

@@ -9,20 +9,54 @@
       <div class="sidebar_parent" v-if="toggle">
         <div class="sidebar_container">
           <div class="animalcell_content">
-    // Animal Cell
+    // Plant Cell
             <div class="animal_slots">
               <div class="title-container">
                   <p class="title" style="color: '#ffffff;">Plant Cell</p>
               </div>
                 <div class="definition">
-                  <p>Eukaryotic cells that has a true, membrane-bound nucleus along with other cellular organelles, but has no cell wall.</p>
+                  <p>Plant cells are eukaryotic cells with a true nucleus along with specialized structures called organelles that carry out certain specific functions to sustain itself.</p>
                     <button class="animal_button">
                       <router-link to="/">Explore Animal Cell</router-link>
                     </button>
                 </div>
             </div>
             <hr style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px">
-            
+    // Cell Wall
+    <div class="animal_slots">
+              <div class="title-container" @click="this.cell_wall_tab = !this.cell_wall_tab">
+                  <p class="title" style="color: '#ffffff;">
+                    Cell wall
+                  </p>
+                  <Dropdown_down v-if="this.cell_wall_tab" style="width: 25px;" />
+                  <Dropdown_up v-else style="width: 25px;" />
+              </div>
+                <div class="definition" v-show="this.cell_wall_tab">
+                  <p>
+                    The cell wall is the tough, flexible, and rigid outermost layer that protects and provides structural support to the cell.
+                  </p>
+                  <p>
+                    The cell wall is composed of cellulose, long fibers of carbohydrates, glycoproteins, lignin, pectin, and hemicellulose. 
+                  </p>
+                  <p class="title" style="font-size: 16px; margin-bottom:-5px">1. Middle Lamella</p>
+                  <p class="definition" style="font-size: 14px; margin-left: 15px;">The middle lamella is also the outermost layer that acts as an interface between other neighboring cells and glues them together. It is composed of pectin, pectose, and Calcium pectate.</p>
+                  <p class="title" style="font-size: 16px; margin-bottom:-5px">2. Primary Cell Wall</p>
+                  <p class="definition" style="font-size: 14px; margin-bottom: -15px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; ">The primary cell wall is the first-formed cell wall that is permeable and very thin, mainly composed of cellulose, allowing the wall to stretch for growth purposes.</p>
+                  <p class="title" style="font-size: 16px; margin-bottom:-5px">3. Secondary Wall</p>
+                  <p class="definition" style="font-size: 14px; margin-bottom: -15px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; ">The secondary wall is the thickest layer that provides the rectangular or square shape of the cell. It is composed of cellulose and lignin that provides additional rigidity and waterproofing.</p>
+                  <p class="title" style="font-size: 16px;">Other substances impregnated in the cell walls:</p>
+                  <p class="title" style="font-size: 16px; margin-bottom:-5px">1. Lignin</p>
+                  <p class="definition" style="font-size: 14px; margin-left: 15px;">Lignin are complex sugar derivatives that are important in the formation of plant cell walls, especially in wood and bark, as they lend rigidity and does not rot easily.</p>
+                  <p class="title" style="font-size: 16px; margin-bottom:-5px">2. Cutin</p>
+                  <p class="definition" style="font-size: 14px; margin-bottom: -15px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; ">Cutin is an oily/fatty substance which makes the cell wall impermeable to water and highly consists of polymerized esters of fatty acids.</p>
+                  <p class="title" style="font-size: 16px; margin-bottom:-5px">3. Suberin</p>
+                  <p class="definition" style="font-size: 14px; margin-bottom: -15px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; ">Suberin is a waxy substance that forms gas and watertight layers rendering the cells impermeability to water.</p>
+                  <p class="title" style="font-size: 16px; margin-bottom:-5px">4. Pectin</p>
+                  <p class="definition" style="font-size: 14px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; ">Pectin is a jelly-like substance containing acidic sugar-containing backbones that cements the cell wall together.</p>
+                  <button class="slot_button" @click="move_camera">Move Camera</button>
+                </div>
+            </div>
+            <hr style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px">
     // Cell Membrane
             <div class="animal_slots">
               <div class="title-container" @click="this.cell_membrane_tab = !this.cell_membrane_tab">
@@ -34,27 +68,11 @@
               </div>
                 <div class="definition" v-show="this.cell_membrane_tab">
                   <p>
-                    A semi-permeable thin layer of protein and fat that
-regulates the entry and exit of specific substances within the cell.
+                    A semi-permeable thin layer of protein and fat that regulates the entry and exit of specific substances within the cell.
                   </p>
-                  <p class="title" style="font-size: 16px;">Specializations of cell membrane of animal cells:</p>
-                  <p class="title" style="font-size: 16px; margin-bottom:-5px">1. Microvilli</p>
-                  <p class="definition" style="font-size: 14px; margin-left: 15px;">Tiny finger-like projections the greatly increases the cells’
-surface area for absorption</p>
-                  <p class="title" style="font-size: 16px; margin-bottom:-5px">2. Cell Junctions</p>
-                  <p class="definition" style="font-size: 14px; margin-bottom: -15px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; ">Cell junctions are intercellular connections between the plasma
-membrane of adjacent cells of animal tissues</p>
-                  <div style="margin-left: 20px;">
-                    <p class="title" style="font-size: 16px; margin-bottom:-5px; margin-left: 15px">Gap junctions</p>
-                    <p class="definition" style="font-size: 14px; margin-bottom: -20px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; ">Gap junctions are cylinder-like channels between neighboring cells
-that allows transport of ions, water, and other substances.</p>
-                    <p class="title" style="font-size: 16px; margin-bottom:-5px; margin-left: 15px">Tight junctions</p>
-                    <p class="definition" style="font-size: 14px; margin-bottom: -20px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; ">Tight junctions are zipper-like structure that creates a watertight
-seal between two adjacent animal cells to keep liquid from escaping between cells.</p>
-                    <p class="title" style="font-size: 16px; margin-bottom:-5px; margin-left: 15px">Desmosomes</p>
-                    <p class="definition" style="font-size: 14px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; ">Desmosomes are button-like junctions that pins adjacent cells
-together to ensure that cells in organs and tissues that stretch, remain connected in an unbroken sheet.</p>
-                  </div>
+                  <p class="title" style="font-size: 16px;">Specialization of cell membrane of plant cells:</p>
+                  <p class="title" style="font-size: 16px; margin-bottom:-5px">1. Plasmodesmata</p>
+                  <p class="definition" style="font-size: 14px; margin-left: 15px;">Plasmodesmata (singular, plasmodesma) is a specialized junction where a hole is punched in the cell wall to allow direct cytoplasmic exchange between two plant cells.</p>
                   <button class="slot_button" @click="move_camera">Move Camera</button>
                 </div>
             </div>
@@ -113,6 +131,8 @@ allows proteins and nucleic acids to pass through.</p>
                     <p class="title" style="font-size: 16px; margin-bottom:-5px">2. Organelles</p>
                     <p class="definition" style="font-size: 14px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; ">Organelles are little metabolic machinery that carry out the functions
   essential to the survival of the cell.</p>                  
+                    <p class="title" style="font-size: 16px; margin-bottom:-5px">3. Non-living inclusions</p>
+                    <p class="definition" style="font-size: 14px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; ">Non-living inclusions are non-living substances that are products of metabolic processes that serves as chief reserved activities.</p>                  
                     <button class="slot_button" @click="move_camera">Move Camera</button>
                   </div>
               </div>
@@ -121,7 +141,41 @@ allows proteins and nucleic acids to pass through.</p>
       // Subcellular Parts
             <p class="title" style="color: '#ffffff;">SUBCELLULAR PARTS:</p>
             <hr style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px">
-
+      // Plastids
+            <div class="animal_slots">
+                <div class="title-container" @click="this.mitochondria_tab = !this.mitochondria_tab">
+                    <p class="title" style="color: '#ffffff;">
+                      Plastids
+                    </p>
+                    <Dropdown_down v-if="this.mitochondria_tab" style="width: 25px;" />
+                    <Dropdown_up v-else style="width: 25px;" />
+                </div>
+                  <div class="definition" v-show="this.mitochondria_tab">
+                    <p>
+                      Plastids are double-membrane globular bodies that are responsible for manufacturing and storing of food. These are capable of self-replication.
+                    </p>
+                    <p class="title" style="font-size: 16px; margin-bottom:-5px">1. Chloroplastid</p>
+                    <p class="definition" style="font-size: 14px; margin-left: 15px;">Chloroplastids are the essential organelles of plants. It is the site for chlorophyll production</p>             
+                    <div style="margin-left: 20px;">
+                      <p class="title" style="font-size: 16px; margin-bottom:-5px; margin-left: 15px">Grana</p>
+                      <p class="definition" style="font-size: 14px; margin-bottom: -20px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; ">Grana are stacked thylakoids that are green in color.</p>
+                      <p class="title" style="font-size: 16px; margin-bottom:-5px; margin-left: 15px">Stroma</p>
+                      <p class="definition" style="font-size: 14px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; ">Stroma is the colorless fluid that surround the grana.</p>
+                  </div>
+                    <p class="title" style="font-size: 16px; margin-bottom:-5px">2. Chromoplastid</p>
+                    <p class="definition" style="font-size: 14px; margin-left: 15px;">Chromoplastids are multi-colored plastids and stores carotenoid pigments in flowers, fruits, and certain leaves.</p>             
+                    <p class="title" style="font-size: 16px; margin-bottom:-5px">3. Leucoplastid</p>
+                    <p class="definition" style="font-size: 14px; margin-left: 15px;">Leucoplastids are colorless plastids that serves as storage center for reserved food.</p>             
+                    <div style="margin-left: 20px;">
+                      <p class="title" style="font-size: 16px; margin-bottom:-5px; margin-left: 15px">Amyloplast</p>
+                      <p class="definition" style="font-size: 14px; margin-bottom: -20px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; ">Amyloplast is a type of leucoplast that forms and stores starch.</p>
+                      <p class="title" style="font-size: 16px; margin-bottom:-5px; margin-left: 15px">Elaioplast</p>
+                      <p class="definition" style="font-size: 14px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; ">Elaioplast is a type of leucoplast that stores fats or lipids</p>
+                  </div>
+                    <button class="slot_button" @click="move_camera">Move Camera</button>
+                  </div>
+              </div>
+              <hr style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px">
       // Mitochondria
               <div class="animal_slots">
                 <div class="title-container" @click="this.mitochondria_tab = !this.mitochondria_tab">
@@ -197,29 +251,7 @@ allows proteins and nucleic acids to pass through.</p>
                   </div>
               </div>
           <hr style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px">
-
-      // Microtubules
-       <div class="animal_slots">
-                <div class="title-container" @click="this.microtubules_tab = !this.microtubules_tab">
-                    <p class="title" style="color: '#ffffff;">
-                      Microtubules
-                    </p>
-                    <Dropdown_down v-if="this.microtubules_tab" style="width: 25px;" />
-                    <Dropdown_up v-else style="width: 25px;" />
-                </div>
-                  <div class="definition" v-show="this.microtubules_tab">
-                    <p>
-                      Microtubules are long straight hollow cylinders made of proteins alpha and beta tubulin. They are responsible in cell movements, cell division, and transporting materials within cells.
-                    </p>
-                    <p class="title" style="font-size: 16px; margin-bottom:-5px">Cilia</p>
-                    <p class="definition" style="font-size: 14px; margin-left: 15px;">Cilia are slender, microscopic, hair-like structures or organelles.</p>   
-                    <p class="title" style="font-size: 16px; margin-bottom:-5px">Flagella</p>
-                    <p class="definition" style="font-size: 14px; margin-left: 15px;">Flagella are microscopic hair-like structures that have a whip-like appearance.</p>   
-                    <button class="slot_button" @click="move_camera">Move Camera</button>
-                  </div>
-              </div>
-          <hr style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px">
-
+          
       // Microbodies
        <div class="animal_slots">
           <div class="title-container" @click="this.microbodies_tab = !this.microbodies_tab">
@@ -326,7 +358,7 @@ Please Wait
             :cast-shadow="true"
             :shadow-map-size="{ width: 1024, height: 1024 }"
           />
-          <GltfModel :position="{ x: 0, y: 1, z: 2 }" src="PlantCell_scaled.glb"   @progress="onProgress"  @load="onReady" />
+          <GltfModel :position="{ x: 0, y: 1, z: 2 }" src="humanCell.glb"   @progress="onProgress"  @load="onReady" />
         </Scene>
         <EffectComposer>
           <RenderPass />
@@ -359,6 +391,7 @@ export default {
       toggle: false,
       animalCellToggle: true,
       animal_cell_tab: false,
+      cell_wall_tab: false,
       cell_membrane_tab: false,
       nucleus_tab: false,
       cytoplasm_tab: false,
