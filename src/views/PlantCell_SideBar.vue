@@ -16,9 +16,16 @@
               </div>
                 <div class="definition">
                   <p>Plant cells are eukaryotic cells with a true nucleus along with specialized structures called organelles that carry out certain specific functions to sustain itself.</p>
-                    <button class="animal_button">
-                      <router-link to="/">Explore Animal Cell</router-link>
-                    </button>
+                    <router-link to="/">
+                            <button class="animal_button" style="margin-top: 12px" >
+                            Explore Animal Cell
+                            </button>
+                    </router-link>
+                    <router-link to="/mitosis">
+                          <button class="animal_button" style="margin-top: 12px" >
+                          Explore Mitosis
+                          </button>
+                    </router-link>
                 </div>
             </div>
             <hr style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px">
@@ -435,7 +442,7 @@ export default {
   },
   onReady(){
     const hello = this.loaded = !this.loaded
-    console.log(hello)
+    console.log('hello loaded' + ' ' + hello)
   },
   toggle_SideBar(){
       this.toggle = !this.toggle;
@@ -447,19 +454,23 @@ export default {
         gsap.to('.nav_button', {left: '3%', duration: 0.5, ease: "expo.out"})
       }
       console.log(this.AnimalCells)
+      event.preventDefault();
     },
   },
   watch:{
       $route (to, from){
           this.toggle = false;
           console.log('Route changed from ' + from.path + ' to ' + to.path);
-          if (to.path == '/plantcell'){
-            this.animalCellToggle = false
-          } else if (to.path == '/') {
-            this.animalCellToggle = true
-          }
+          gsap.to('canvas', {x: '0%', duration: 0.5, ease: "expo.out"})
+          gsap.to('.nav_button', {left: '3%', duration: 0.5, ease: "expo.out"})
+          // if (to.path == '/plantcell'){
+          //   this.animalCellToggle = false
+          // } else if (to.path == '/') {
+          //   this.animalCellToggle = true
+          // }
       },
-  }
+  },
+
 };
 </script>
 <style>
@@ -489,14 +500,6 @@ export default {
     margin: 0;
     background: #000000;
   }
-    .test_button{
-    z-index: 40;
-    position: absolute;
-    left: 0;
-    }
-    .test_button > div{
-    padding: 30px;
-    }
     .sidebar_parent {
       width: 35%;
       height: 100vh;

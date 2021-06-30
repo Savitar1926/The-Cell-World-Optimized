@@ -16,9 +16,16 @@
               </div>
                 <div class="definition">
                   <p>Eukaryotic cells that has a true, membrane-bound nucleus along with other cellular organelles, but has no cell wall.</p>
-                    <button class="plant_button">
-                      <router-link to="/plantcell">Explore Plant Cell</router-link>
-                    </button>
+                    <router-link to="/plantcell">
+                            <button class="plant_button" style="margin-top: 12px" >
+                            Explore Plant Cell
+                            </button>
+                    </router-link>
+                    <router-link to="/mitosis">
+                          <button class="animal_button" style="margin-top: 12px" >
+                          Explore Mitosis
+                          </button>
+                    </router-link>
                 </div>
             </div>
             <hr style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px">
@@ -419,13 +426,16 @@ export default {
       $route (to, from){
           this.toggle = false;
           console.log('Route changed from ' + from.path + ' to ' + to.path);
+            gsap.to('canvas', {x: '0%', duration: 0.5, ease: "expo.out"})
+            gsap.to('.nav_button', {left: '3%', duration: 0.5, ease: "expo.out"})
           if (to.path == '/plantcell'){
-            this.animalCellToggle = false
+            gsap.to('canvas', {x: '0%', duration: 0.5, ease: "expo.out"})
+            gsap.to('.nav_button', {left: '3%', duration: 0.5, ease: "expo.out"})
           } else if (to.path == '/') {
             this.animalCellToggle = true
           }
       },
-  }
+  },
 };
 </script>
 <style>
@@ -437,7 +447,7 @@ export default {
   background: #000000;
 }
     .nav_button{
-    z-index: 50;
+    z-index: 40;
     position: absolute;
     top: 5%;
     left: 3%;
@@ -505,6 +515,7 @@ export default {
             background: #1DB954;
             cursor: pointer;
             color: #ffffff;
+            width: 100%;
           }
 
 

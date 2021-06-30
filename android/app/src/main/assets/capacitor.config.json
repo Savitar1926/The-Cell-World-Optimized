@@ -1,6 +1,6 @@
 {
-	"appId": "com.example.app",
-	"appName": "Modified Cell World",
+	"appId": "cell.world",
+	"appName": "TNT Cell World",
 	"webDir": "dist",
 	"bundledWebRuntime": false
 }

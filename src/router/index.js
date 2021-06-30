@@ -1,16 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import AS from '../views/AnimalCell_SideBar.vue'
+import AnimalCell from '../views/AnimalCell_SideBar.vue'
 import PlantCell from '../views/PlantCell_SideBar.vue'
+import Mitosis from '../views/Mitosis.vue'
 
 const routes = [{
         path: '/',
-        name: 'AS',
-        component: AS
+        name: 'Animal Cell',
+        component: AnimalCell
     },
     {
         path: '/plantcell',
-        name: 'PlantCell',
+        name: 'Plant Cell',
         component: PlantCell
+    },
+    {
+        path: '/mitosis',
+        name: 'Mitosis',
+        component: Mitosis
     },
 
 
