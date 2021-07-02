@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">TNT Cell World</string>
-    <string name="title_activity_main">TNT Cell World</string>
+    <string name="app_name">Updated Cell World</string>
+    <string name="title_activity_main">Updated Cell World</string>
     <string name="package_name">cell.world</string>
     <string name="custom_url_scheme">cell.world</string>
 </resources>
