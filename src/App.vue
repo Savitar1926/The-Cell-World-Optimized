@@ -56,10 +56,10 @@ export default {
       if (orientation === "portrait-primary") {
         console.log("portarit");
         this.orientation = false;
-      } else if (orientation === "landscape-primary") {
-        console.log("landscape");
-        this.orientation = true;
-      } else if (orientation === "landscape-secondary") {
+      } else if (
+        orientation === "landscape-primary" ||
+        orientation === "landscape-secondary"
+      ) {
         console.log("landscape");
         this.orientation = true;
       }
