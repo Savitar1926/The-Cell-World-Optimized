@@ -12,13 +12,24 @@
           />
         </button>
       </div>
+      <div>
+        <button class="show_button" @click="toggle_label">
+          <p v-if="this.label">Hide Label</p>
+          <p v-else>Show Label</p>
+        </button>
+      </div>
       <div class="sidebar_parent" v-if="toggle">
         <div class="sidebar_container">
           <div class="animalcell_content">
             // Animal Cell
             <div class="animal_top">
               <div class="title-container">
-                <p class="title" style="color: '#ffffff;">Animal Cell</p>
+                <p
+                  class="title"
+                  style="color: '#ffffff; font-family: Bebas; font-size: 45px; margin-bottom: 10px; letter-spacing: 4px;"
+                >
+                  Animal Cell
+                </p>
               </div>
               <div class="definition">
                 <p>
@@ -26,12 +37,18 @@
                   with other cellular organelles, but has no cell wall.
                 </p>
                 <router-link to="/plantcell">
-                  <button class="plant_button" style="margin-top: 12px">
+                  <button
+                    class="animal_button"
+                    style="margin-top: 12px; background: #1db954"
+                  >
                     Explore Plant Cell
                   </button>
                 </router-link>
                 <router-link to="/mitosis">
-                  <button class="animal_button" style="margin-top: 12px">
+                  <button
+                    class="animal_button"
+                    style="margin-top: 12px; background: #9932CC;"
+                  >
                     Explore Mitosis
                   </button>
                 </router-link>
@@ -129,7 +146,7 @@
                   </p>
                 </div>
                 <button class="slot_button" @click="move_camera">
-                  Move Camera
+                  Move to Cell Membrane
                 </button>
               </div>
             </div>
@@ -269,7 +286,12 @@
             />
 
             // Subcellular Parts
-            <p class="title" style="color: '#ffffff;">SUBCELLULAR PARTS:</p>
+            <p
+              class="title"
+              style="color: '#ffffff; letter-spacing: 2px; font-weight: 900 "
+            >
+              SUBCELLULAR PARTS:
+            </p>
             <hr
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
@@ -654,15 +676,28 @@
           :shadow-map-size="{ width: 1024, height: 1024 }"
         />
         <GltfModel
+          ref="label"
           :position="{ x: 0, y: 1, z: 2 }"
-          src="humanCell.glb"
+          src="animal_cell_label.glb"
+          @progress="onProgress"
+          @load="onReady"
+        />
+        <GltfModel
+          :position="{ x: 0, y: 1, z: 2 }"
+          src="animal_cell_model.glb"
+          @progress="onProgress"
+          @load="onReady"
+        />
+        <GltfModel
+          :position="{ x: 0, y: 1, z: 2 }"
+          src="animal_cell_world.glb"
           @progress="onProgress"
           @load="onReady"
         />
       </Scene>
       <EffectComposer>
         <RenderPass />
-        <UnrealBloomPass :strength="0.5" :radius="1" />
+        <UnrealBloomPass :strength="0.7" :radius="1" />
       </EffectComposer>
     </Renderer>
   </div>
@@ -703,6 +738,7 @@ export default {
       microfilaments_tab: false,
       vacuole_tab: false,
       tonoplast_tab: false,
+      label: true,
     };
   },
   components: {
@@ -731,7 +767,7 @@ export default {
         x: 1.5,
         y: -0.3383049367400532,
         z: 12,
-        duration: 2,
+        duration: 0.5,
         ease: "expo.out",
       });
     },
@@ -757,6 +793,10 @@ export default {
       }
       console.log(this.AnimalCells);
     },
+    toggle_label() {
+      this.$refs.label.o3d.visible = !this.$refs.label.o3d.visible;
+      this.label = !this.label;
+    },
   },
   watch: {
     $route(to, from) {
@@ -780,7 +820,7 @@ export default {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  background: #000000;
+  background: #030303;
 }
 .nav_button {
   z-index: 40;
@@ -793,13 +833,28 @@ export default {
   height: 50px;
   padding: 10px;
 }
+.show_button {
+  z-index: 40;
+  position: absolute;
+  top: 5%;
+  right: 3%;
+  border: none;
+  border-radius: 15px;
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+}
 .sidebar_parent {
   width: 35%;
   height: 100vh;
   position: absolute;
   z-index: 40;
   overflow-x: hidden;
-  background-color: #000000;
+  background-color: #030303;
   top: 0;
   right: 0;
 }
@@ -835,29 +890,18 @@ export default {
   padding-bottom: 20px;
 }
 .slot_button {
-  padding: 8px;
+  padding: 15px;
   border: none;
   border-radius: 10px;
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
-}
-.plant_button {
-  padding: 8px;
-  border: none;
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: bold;
-  background: #1db954;
-  cursor: pointer;
-  color: #ffffff;
   width: 100%;
 }
-
 canvas {
   position: fixed;
   z-index: 0;
-  background: #000000;
+  background: #030303;
   inset: 0;
 }
 .sidebar_parent a {

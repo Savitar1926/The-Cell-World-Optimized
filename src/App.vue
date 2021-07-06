@@ -88,6 +88,10 @@ export default {
   font-family: "Poppins";
   src: url(./assets/Poppins-Regular.ttf);
 }
+@font-face {
+  font-family: "Bebas";
+  src: url(./assets/BebasNeue-Regular.ttf);
+}
 html {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }

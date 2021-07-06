@@ -18,7 +18,12 @@
             // Mitosis
             <div class="animal_slots">
               <div class="title-container">
-                <p class="title" style="color: '#ffffff;">Mitosis</p>
+                <p
+                  class="title"
+                  style="color: '#ffffff; font-family: Bebas; font-size: 45px; margin-bottom: 10px; letter-spacing: 4px;"
+                >
+                  Mitosis
+                </p>
               </div>
               <div class="definition">
                 <p>
@@ -34,7 +39,10 @@
                   </button>
                 </router-link>
                 <router-link to="/plantcell">
-                  <button class="plant_button" style="margin-top: 12px">
+                  <button
+                    class="animal_button"
+                    style="margin-top: 12px; background: #1db954"
+                  >
                     Explore Plant Cell
                   </button>
                 </router-link>
@@ -89,7 +97,7 @@
                 </p>
                 <p
                   class="definition"
-                  style="font-size: 14px; margin-bottom: -15px; margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; "
+                  style="font-size: 14px;  margin-left: 15px;  overflow: hidden; text-overflow: ellipsis; "
                 >
                   During G2 phase, the cell grows more, makes proteins and
                   organelles, and begins to reorganize its contents in
@@ -378,7 +386,7 @@ export default {
   background: red;
 }
 .animal_button {
-  padding: 8px;
+  padding: 15px;
   border: none;
   border-radius: 10px;
   font-size: 12px;
@@ -394,12 +402,12 @@ export default {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  background: #000000;
+  background: #030303;
 }
 .container_all {
   overflow: hidden;
   margin: 0;
-  background: #000000;
+  background: #030303;
 }
 .sidebar_parent {
   width: 35%;
@@ -407,7 +415,7 @@ export default {
   position: absolute;
   z-index: 40;
   overflow-x: hidden;
-  background-color: #000000;
+  background-color: #030303;
   margin: 0px;
   top: 0;
   left: 0;
@@ -440,25 +448,10 @@ export default {
   font-weight: bold;
   color: #ffffff;
 }
-.sidebar_parent a.router-link-exact-active {
-  color: #42b983;
-}
 canvas {
   position: fixed;
   z-index: 0;
-  background: #000000;
+  background: #030303;
   inset: 0;
-}
-.white {
-  height: 100vh;
-  width: 100vw;
-  background: #ffffff;
-  z-index: 100;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  top: 0;
 }
 </style>

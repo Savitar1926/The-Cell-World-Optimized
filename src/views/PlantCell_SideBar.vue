@@ -18,7 +18,12 @@
             // Plant Cell
             <div class="animal_slots">
               <div class="title-container">
-                <p class="title" style="color: '#ffffff;">Plant Cell</p>
+                <p
+                  class="title"
+                  style="color: '#ffffff; font-family: Bebas; font-size: 45px; margin-bottom: 10px; letter-spacing: 4px;"
+                >
+                  Plant Cell
+                </p>
               </div>
               <div class="definition">
                 <p>
@@ -32,7 +37,10 @@
                   </button>
                 </router-link>
                 <router-link to="/mitosis">
-                  <button class="animal_button" style="margin-top: 12px">
+                  <button
+                    class="animal_button"
+                    style="margin-top: 12px; background: #9932CC;"
+                  >
                     Explore Mitosis
                   </button>
                 </router-link>
@@ -145,7 +153,7 @@
                   sugar-containing backbones that cements the cell wall
                   together.
                 </p>
-                <button class="slot_button" @click="move_camera">
+                <button class="slot_button" @click="move_model">
                   Move Camera
                 </button>
               </div>
@@ -788,14 +796,14 @@
         />
         <GltfModel
           :position="{ x: 0, y: 1, z: 2 }"
-          src="decimated_1.glb"
+          src="PlantCell_Downsized.glb"
           @progress="onProgress"
           @load="onReady"
         />
       </Scene>
       <EffectComposer>
         <RenderPass />
-        <UnrealBloomPass :strength="0.8" :radius="1" />
+        <UnrealBloomPass :strength="0.5" :radius="1" />
       </EffectComposer>
     </Renderer>
   </div>
@@ -837,6 +845,7 @@ export default {
       microfilaments_tab: false,
       vacuole_tab: false,
       tonoplast_tab: false,
+      showclick: true,
     };
   },
   components: {
@@ -868,12 +877,20 @@ export default {
         ease: "expo.out",
       });
     },
+    move_model() {
+      console.log(this.$refs.model_animal);
+      // this.$refs.model_animal.o3d.visibe = !this.$refs.model.o3d.visible;
+      console.log("I have move the model");
+      this.$refs.model_animal.o3d.visible = !this.$refs.model_animal.o3d
+        .visible;
+      console.log(this.$refs.model_animal.o3d.visible);
+    },
     onProgress() {
-      console.log("Loading Animal Cell");
+      console.log("Loading Plant Cell");
     },
     onReady() {
       const hello = (this.loaded = !this.loaded);
-      console.log("hello loaded" + " " + hello);
+      console.log("I have loaded" + " " + hello);
     },
     toggle_SideBar() {
       this.toggle = !this.toggle;
@@ -888,8 +905,6 @@ export default {
         gsap.to("canvas", { x: "0%", duration: 0.5, ease: "expo.out" });
         gsap.to(".nav_button", { left: "3%", duration: 0.5, ease: "expo.out" });
       }
-      console.log(this.AnimalCells);
-      event.preventDefault();
     },
   },
   watch: {
@@ -913,7 +928,7 @@ export default {
   background: red;
 }
 .animal_button {
-  padding: 8px;
+  padding: 25px;
   border: none;
   border-radius: 10px;
   font-size: 12px;
@@ -927,12 +942,12 @@ export default {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  background: #000000;
+  background: #030303;
 }
 .container_all {
   overflow: hidden;
   margin: 0;
-  background: #000000;
+  background: #030303;
 }
 .sidebar_parent {
   width: 35%;
@@ -940,7 +955,7 @@ export default {
   position: absolute;
   z-index: 40;
   overflow-x: hidden;
-  background-color: #000000;
+  background-color: #030303;
   margin: 0px;
   top: 0;
   left: 0;
@@ -979,7 +994,7 @@ export default {
 canvas {
   position: fixed;
   z-index: 0;
-  background: #000000;
+  background: #030303;
   inset: 0;
 }
 .white {
