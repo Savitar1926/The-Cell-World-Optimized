@@ -1,9 +1,9 @@
 <template>
   <div class="container_all">
-    <div class="portrait" v-if="!this.orientation">
+    <div class="portrait" v-show="!this.orientation">
       Hello
     </div>
-    <div class="landscape" v-else>
+    <div class="landscape">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
@@ -40,6 +40,15 @@ export default {
       this.toggle = false;
       console.log("Route changed from " + from.path + " to " + to.path);
       console.log(this.$route.name);
+      const orientation = window.screen.orientation.type;
+      console.log(orientation);
+      if (orientation === "portrait-primary") {
+        console.log("portarit");
+        this.orientation = false;
+      } else if (orientation === "landscape-primary") {
+        console.log("landscape");
+        this.orientation = true;
+      }
       // if (to.path == '/plantcell'){
       //   this.animalCellToggle = false
       //   this.toggle = false;
@@ -51,6 +60,9 @@ export default {
     },
     checkRoute() {
       console.log(this.$route.name);
+    },
+    checkOrientation() {
+      this.handleOrientationChange();
     },
   },
   beforeUpdate() {
