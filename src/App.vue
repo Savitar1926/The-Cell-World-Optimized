@@ -1,7 +1,18 @@
 <template>
   <div class="container_all">
     <div class="portrait" v-show="!this.orientation">
-      Hello
+      <div class="portrait_content">
+        <lottie-interactive
+          class="rotate-phone"
+          path="rotate-phone.json"
+          autoplay
+          loop
+        />
+        <p style="font-size: 18px; font-weight: bold; margin-bottom: -10px;">
+          Please rotate your device
+        </p>
+        <p style="font-size: 12px; ">We support landscape mode only</p>
+      </div>
     </div>
     <div class="landscape">
       <router-view v-slot="{ Component }">
@@ -89,7 +100,8 @@ export default {
 <style>
 .portrait {
   z-index: 1000;
-  background-color: #ffffff;
+  background-color: #030303;
+  color: #fff;
   height: 100vh;
   width: 100%;
   position: absolute;
@@ -98,6 +110,14 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.portrait_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rotate-phone {
+  width: 200px;
 }
 .back_trans {
   width: 100%;
