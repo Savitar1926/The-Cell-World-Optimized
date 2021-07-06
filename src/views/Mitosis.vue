@@ -261,8 +261,21 @@
           :shadow-map-size="{ width: 1024, height: 1024 }"
         />
         <GltfModel
+          ref="label"
           :position="{ x: 0, y: 1, z: 2 }"
-          src="humanCell.glb"
+          src="animal_cell_label.glb"
+          @progress="onProgress"
+          @load="onReady"
+        />
+        <GltfModel
+          :position="{ x: 0, y: 1, z: 2 }"
+          src="animal_cell_model.glb"
+          @progress="onProgress"
+          @load="onReady"
+        />
+        <GltfModel
+          :position="{ x: 0, y: 1, z: 2 }"
+          src="animal_cell_world.glb"
           @progress="onProgress"
           @load="onReady"
         />

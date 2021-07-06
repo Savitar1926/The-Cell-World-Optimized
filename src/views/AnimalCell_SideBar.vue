@@ -697,7 +697,7 @@
       </Scene>
       <EffectComposer>
         <RenderPass />
-        <UnrealBloomPass :strength="0.7" :radius="1" />
+        <UnrealBloomPass :strength="0.8" :radius="1" />
       </EffectComposer>
     </Renderer>
   </div>
