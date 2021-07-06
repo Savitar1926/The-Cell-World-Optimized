@@ -1,10 +1,15 @@
 <template>
   <div class="container_all">
-    <router-view v-slot="{ Component }">
-      <transition name="fade" mode="out-in">
-        <component :is="Component" />
-      </transition>
-    </router-view>
+    <div class="portrait" v-if="!this.orientation">
+      Hello
+    </div>
+    <div class="landscape" v-else>
+      <router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+    </div>
     <div class="back_trans">
       <lottie-interactive
         path="loader_trans.json"
@@ -24,6 +29,7 @@ export default {
     return {
       loading: false,
       route: this.$route.name,
+      orientation: true,
     };
   },
   components: {
@@ -50,10 +56,37 @@ export default {
   beforeUpdate() {
     console.log("I am updating");
   },
+  mounted() {
+    window.addEventListener("orientationchange", this.handleOrientationChange);
+  },
+  methods: {
+    handleOrientationChange() {
+      const orientation = window.screen.orientation.type;
+      if (orientation === "portrait-primary") {
+        console.log("portarit");
+        this.orientation = false;
+      } else if (orientation === "landscape-primary") {
+        console.log("landscape");
+        this.orientation = true;
+      }
+    },
+  },
 };
 </script>
 
 <style>
+.portrait {
+  z-index: 1000;
+  background-color: #ffffff;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .back_trans {
   width: 100%;
   height: 100vh;
