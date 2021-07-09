@@ -145,7 +145,7 @@
                     that stretch, remain connected in an unbroken sheet.
                   </p>
                 </div>
-                <button class="slot_button" @click="move_camera">
+                <button class="slot_button" @click="move_cell_membrane">
                   Move to Cell Membrane
                 </button>
               </div>
@@ -226,8 +226,8 @@
                   Nuclear membrane is perforated with hole called nucleopore
                   that allows proteins and nucleic acids to pass through.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
+                <button class="slot_button" @click="move_cell_nucleus">
+                  Move to Nucleus
                 </button>
               </div>
             </div>
@@ -276,9 +276,6 @@
                   Organelles are little metabolic machinery that carry out the
                   functions essential to the survival of the cell.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
-                </button>
               </div>
             </div>
             <hr
@@ -328,8 +325,8 @@
                   Cristae is the inner membrane of the mitochondria that
                   resembles a plate-like structure.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
+                <button class="slot_button" @click="move_mitochondrion">
+                  Move to Mitochondria
                 </button>
               </div>
             </div>
@@ -374,8 +371,8 @@
                   ribosomes attached to its surface. It is the site for lipid
                   synthesis.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
+                <button class="slot_button" @click="move_ribosomes">
+                  Move to Ribosomes
                 </button>
               </div>
             </div>
@@ -397,9 +394,6 @@
                   sacs that plays a major role in the production, processing,
                   and transport of proteins and lipids.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
-                </button>
               </div>
             </div>
             <hr
@@ -425,8 +419,8 @@
                   function is the packaging and secretion of the newly
                   synthesized proteins from the Rough ER.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
+                <button class="slot_button" @click="move_golgi">
+                  Move to Golgi Apparatus
                 </button>
               </div>
             </div>
@@ -476,8 +470,8 @@
                   Flagella are microscopic hair-like structures that have a
                   whip-like appearance.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
+                <button class="slot_button" @click="move_microtubules">
+                  Move to Microtubules
                 </button>
               </div>
             </div>
@@ -549,9 +543,6 @@
                   Spherosomes are small spherical bodies that are responsible
                   for storage and synthesis of lipid
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
-                </button>
               </div>
             </div>
             <hr
@@ -580,9 +571,6 @@
                   and muscles that provides support and shape. It is also
                   responsible for movement of organelles.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
-                </button>
               </div>
             </div>
             <hr
@@ -609,9 +597,6 @@
                   vacuoles in plant cells are very large and take up most of the
                   interior space of the cell.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
-                </button>
               </div>
             </div>
             <hr
@@ -634,9 +619,6 @@
                 <p>
                   Tonoplast is the membrane surrounding the vacuole.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
-                </button>
               </div>
             </div>
             <hr
@@ -759,7 +741,7 @@ export default {
     console.log(this.$refs.camera.camera.position.x);
   },
   methods: {
-    move_camera() {
+    move_cell_membrane() {
       console.log(this.$refs.camera.camera.position.z);
       console.log(this.$refs.camera.camera.position.y);
       console.log(this.$refs.camera.camera.minDistance);
@@ -767,6 +749,66 @@ export default {
         x: 1.5,
         y: -0.3383049367400532,
         z: 12,
+        duration: 0.5,
+        ease: "expo.out",
+      });
+    },
+    move_cell_nucleus() {
+      console.log(this.$refs.camera.camera.position.z);
+      console.log(this.$refs.camera.camera.position.y);
+      console.log(this.$refs.camera.camera.minDistance);
+      gsap.to(this.$refs.camera.camera.position, {
+        x: 0.2182057227258976,
+        y: 2.5406897077407464,
+        z: -4.300846669151309,
+        duration: 0.5,
+        ease: "expo.out",
+      });
+    },
+    move_mitochondrion() {
+      console.log(this.$refs.camera.camera.position.z);
+      console.log(this.$refs.camera.camera.position.y);
+      console.log(this.$refs.camera.camera.minDistance);
+      gsap.to(this.$refs.camera.camera.position, {
+        x: 4.945834149932275,
+        y: 1.4219836932355336,
+        z: 3.901818854796933,
+        duration: 0.5,
+        ease: "expo.out",
+      });
+    },
+    move_ribosomes() {
+      console.log(this.$refs.camera.camera.position.z);
+      console.log(this.$refs.camera.camera.position.y);
+      console.log(this.$refs.camera.camera.minDistance);
+      gsap.to(this.$refs.camera.camera.position, {
+        x: 1.5727390265791892,
+        y: 4.086065811361901,
+        z: 3.8472822045872483,
+        duration: 0.5,
+        ease: "expo.out",
+      });
+    },
+    move_golgi() {
+      console.log(this.$refs.camera.camera.position.z);
+      console.log(this.$refs.camera.camera.position.y);
+      console.log(this.$refs.camera.camera.minDistance);
+      gsap.to(this.$refs.camera.camera.position, {
+        x: 1.6423356575740118,
+        y: 1.423000022437582,
+        z: 6.081554732312811,
+        duration: 0.5,
+        ease: "expo.out",
+      });
+    },
+    move_microtubules() {
+      console.log(this.$refs.camera.camera.position.z);
+      console.log(this.$refs.camera.camera.position.y);
+      console.log(this.$refs.camera.camera.minDistance);
+      gsap.to(this.$refs.camera.camera.position, {
+        x: -3.6986047205228756,
+        y: 1.0688001601533776,
+        z: 4.375958359173602,
         duration: 0.5,
         ease: "expo.out",
       });
@@ -796,6 +838,10 @@ export default {
     toggle_label() {
       this.$refs.label.o3d.visible = !this.$refs.label.o3d.visible;
       this.label = !this.label;
+    },
+    take_data_camera() {
+      this.$refs.camera.camera.position;
+      console.log(this.$refs.camera.camera.position);
     },
   },
   watch: {

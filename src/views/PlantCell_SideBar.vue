@@ -12,6 +12,12 @@
           />
         </button>
       </div>
+      <div>
+        <button class="show_button" @click="toggle_label">
+          <p v-if="this.label">Hide Label</p>
+          <p v-else>Show Label</p>
+        </button>
+      </div>
       <div class="sidebar_parent" v-if="toggle">
         <div class="sidebar_container">
           <div class="animalcell_content">
@@ -153,8 +159,8 @@
                   sugar-containing backbones that cements the cell wall
                   together.
                 </p>
-                <button class="slot_button" @click="move_model">
-                  Move Camera
+                <button class="slot_button" @click="move_cell_wall">
+                  Move to Cell Wall
                 </button>
               </div>
             </div>
@@ -195,9 +201,6 @@
                   junction where a hole is punched in the cell wall to allow
                   direct cytoplasmic exchange between two plant cells.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
-                </button>
               </div>
             </div>
             <hr
@@ -276,8 +279,8 @@
                   Nuclear membrane is perforated with hole called nucleopore
                   that allows proteins and nucleic acids to pass through.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
+                <button class="slot_button" @click="move_nucleus">
+                  Move Nucleus
                 </button>
               </div>
             </div>
@@ -337,8 +340,35 @@
                   products of metabolic processes that serves as chief reserved
                   activities.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
+                <button class="slot_button" @click="move_cytosol">
+                  Move Cytosol
+                </button>
+              </div>
+            </div>
+            <hr
+              style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
+            />
+            // Cytoplasm
+            <div class="animal_slots">
+              <div
+                class="title-container"
+                @click="this.dna_tab = !this.dna_tab"
+              >
+                <p class="title" style="color: '#ffffff;">
+                  DNA
+                </p>
+                <Dropdown_down v-if="this.cytoplasm_tab" style="width: 25px;" />
+                <Dropdown_up v-else style="width: 25px;" />
+              </div>
+              <div class="definition" v-show="this.dna_tab">
+                <p>
+                  The Deoxyribonucleic acid (DNA) is a molecule that carries
+                  most of the genetic instructions used in the development,
+                  functioning and reproduction of all known living organisms and
+                  many viruses.
+                </p>
+                <button class="slot_button" @click="move_dna">
+                  Move DNA
                 </button>
               </div>
             </div>
@@ -355,18 +385,15 @@
             <div class="animal_slots">
               <div
                 class="title-container"
-                @click="this.mitochondria_tab = !this.mitochondria_tab"
+                @click="this.plastids_tab = !this.plastids_tab"
               >
                 <p class="title" style="color: '#ffffff;">
                   Plastids
                 </p>
-                <Dropdown_down
-                  v-if="this.mitochondria_tab"
-                  style="width: 25px;"
-                />
+                <Dropdown_down v-if="this.plastids_tab" style="width: 25px;" />
                 <Dropdown_up v-else style="width: 25px;" />
               </div>
-              <div class="definition" v-show="this.mitochondria_tab">
+              <div class="definition" v-show="this.plastids_tab">
                 <p>
                   Plastids are double-membrane globular bodies that are
                   responsible for manufacturing and storing of food. These are
@@ -456,9 +483,6 @@
                     lipids
                   </p>
                 </div>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
-                </button>
               </div>
             </div>
             <hr
@@ -496,8 +520,8 @@
                   Cristae is the inner membrane of the mitochondria that
                   resembles a plate-like structure.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
+                <button class="slot_button" @click="move_mitochondrion">
+                  Move Mitochndria
                 </button>
               </div>
             </div>
@@ -542,8 +566,8 @@
                   ribosomes attached to its surface. It is the site for lipid
                   synthesis.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
+                <button class="slot_button" @click="move_ribosome">
+                  Move Ribosomes
                 </button>
               </div>
             </div>
@@ -565,9 +589,6 @@
                   sacs that plays a major role in the production, processing,
                   and transport of proteins and lipids.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
-                </button>
               </div>
             </div>
             <hr
@@ -593,8 +614,8 @@
                   function is the packaging and secretion of the newly
                   synthesized proteins from the Rough ER.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
+                <button class="slot_button" @click="move_golgi">
+                  Move Golgi Apparatus
                 </button>
               </div>
             </div>
@@ -666,9 +687,6 @@
                   Spherosomes are small spherical bodies that are responsible
                   for storage and synthesis of lipid
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
-                </button>
               </div>
             </div>
             <hr
@@ -697,9 +715,6 @@
                   and muscles that provides support and shape. It is also
                   responsible for movement of organelles.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
-                </button>
               </div>
             </div>
             <hr
@@ -726,8 +741,8 @@
                   vacuoles in plant cells are very large and take up most of the
                   interior space of the cell.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
+                <button class="slot_button" @click="move_vacuole">
+                  Move Vacuole
                 </button>
               </div>
             </div>
@@ -751,9 +766,6 @@
                 <p>
                   Tonoplast is the membrane surrounding the vacuole.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
-                </button>
               </div>
             </div>
             <hr
@@ -774,7 +786,7 @@
         enablePan: false,
         dampingFactor: 0.05,
         maxDistance: 15,
-        minDistance: 10,
+        minDistance: 5,
         minPan: 3,
       }"
       resize="window"
@@ -795,8 +807,21 @@
           :shadow-map-size="{ width: 1024, height: 1024 }"
         />
         <GltfModel
+          ref="label"
           :position="{ x: 0, y: 1, z: 2 }"
-          src="PlantCell_Downsized.glb"
+          src="plant_cell_label.glb"
+          @progress="onProgress"
+          @load="onReady"
+        />
+        <GltfModel
+          :position="{ x: 0, y: 1, z: 2 }"
+          src="plant_cell_model.glb"
+          @progress="onProgress"
+          @load="onReady"
+        />
+        <GltfModel
+          :position="{ x: 0, y: 1, z: 2 }"
+          src="plant_cell_world.glb"
           @progress="onProgress"
           @load="onReady"
         />
@@ -836,6 +861,7 @@ export default {
       cell_membrane_tab: false,
       nucleus_tab: false,
       cytoplasm_tab: false,
+      plastids_tab: false,
       mitochondria_tab: false,
       ribosome_tab: false,
       er_tab: false,
@@ -845,7 +871,9 @@ export default {
       microfilaments_tab: false,
       vacuole_tab: false,
       tonoplast_tab: false,
+      dna_tab: false,
       showclick: true,
+      label: true,
     };
   },
   components: {
@@ -905,6 +933,102 @@ export default {
         gsap.to("canvas", { x: "0%", duration: 0.5, ease: "expo.out" });
         gsap.to(".nav_button", { left: "3%", duration: 0.5, ease: "expo.out" });
       }
+    },
+    toggle_label() {
+      this.$refs.label.o3d.visible = !this.$refs.label.o3d.visible;
+      this.label = !this.label;
+    },
+    take_data_camera() {
+      this.$refs.camera.camera.position;
+      console.log(this.$refs.camera.camera.position);
+    },
+    move_cell_wall() {
+      console.log(this.$refs.camera.camera.position.z);
+      console.log(this.$refs.camera.camera.position.y);
+      gsap.to(this.$refs.camera.camera.position, {
+        x: 7.84403937102249,
+        y: -5.544192575515864,
+        z: 3.5683294454749683,
+        duration: 0.5,
+        ease: "expo.out",
+      });
+    },
+    move_vacuole() {
+      console.log(this.$refs.camera.camera.position.z);
+      console.log(this.$refs.camera.camera.position.y);
+      gsap.to(this.$refs.camera.camera.position, {
+        x: 1.499817092816082,
+        y: 2.2251989778447983,
+        z: 7.903048999117148,
+        duration: 0.5,
+        ease: "expo.out",
+      });
+    },
+    move_nucleus() {
+      console.log(this.$refs.camera.camera.position.z);
+      console.log(this.$refs.camera.camera.position.y);
+      gsap.to(this.$refs.camera.camera.position, {
+        x: 4.3542037428977896,
+        y: -1.2202431934308826,
+        z: 2.1335220444655616,
+        duration: 0.5,
+        ease: "expo.out",
+      });
+    },
+    move_golgi() {
+      console.log(this.$refs.camera.camera.position.z);
+      console.log(this.$refs.camera.camera.position.y);
+      gsap.to(this.$refs.camera.camera.position, {
+        x: 4.767938678045818,
+        y: 1.1212589516346956,
+        z: -1.004758242451271,
+        duration: 0.5,
+        ease: "expo.out",
+      });
+    },
+    move_mitochondrion() {
+      console.log(this.$refs.camera.camera.position.z);
+      console.log(this.$refs.camera.camera.position.y);
+      gsap.to(this.$refs.camera.camera.position, {
+        x: -2.769583216614748,
+        y: 2.651698530832316,
+        z: 3.994590249750081,
+        duration: 0.5,
+        ease: "expo.out",
+      });
+    },
+    move_cytosol() {
+      console.log(this.$refs.camera.camera.position.z);
+      console.log(this.$refs.camera.camera.position.y);
+      gsap.to(this.$refs.camera.camera.position, {
+        x: -3.102480354981409,
+        y: 4.814050901911571,
+        z: 3.6694651812357635,
+        duration: 0.5,
+        ease: "expo.out",
+      });
+    },
+    move_ribosome() {
+      console.log(this.$refs.camera.camera.position.z);
+      console.log(this.$refs.camera.camera.position.y);
+      gsap.to(this.$refs.camera.camera.position, {
+        x: 5.338173469223321,
+        y: -1.4025973590396814,
+        z: 0.44212239986934554,
+        duration: 0.5,
+        ease: "expo.out",
+      });
+    },
+    move_dna() {
+      console.log(this.$refs.camera.camera.position.z);
+      console.log(this.$refs.camera.camera.position.y);
+      gsap.to(this.$refs.camera.camera.position, {
+        x: 4.02213102386774,
+        y: -0.9840921099067595,
+        z: 2.8025032999195414,
+        duration: 0.5,
+        ease: "expo.out",
+      });
     },
   },
   watch: {
