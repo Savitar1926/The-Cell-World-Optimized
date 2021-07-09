@@ -12,6 +12,23 @@
           />
         </button>
       </div>
+      <div class="stages_parent">
+        <div class="stages_container">
+          <p style="color: #fff;">Stages of Mitosis</p>
+          <button class="stages_button" @click="toggle_prophase">
+            <p>Prophase</p>
+          </button>
+          <button class="stages_button" @click="toggle_anaphase">
+            <p>Anaphase</p>
+          </button>
+          <button class="stages_button" @click="toggle_metaphase">
+            <p>Metaphase</p>
+          </button>
+          <button class="stages_button" @click="toggle_telophase">
+            <p>Telophase</p>
+          </button>
+        </div>
+      </div>
       <div class="sidebar_parent" v-if="toggle">
         <div class="sidebar_container">
           <div class="animalcell_content">
@@ -103,9 +120,6 @@
                   organelles, and begins to reorganize its contents in
                   preparation for mitosis.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
-                </button>
               </div>
             </div>
             <hr
@@ -188,9 +202,6 @@
                   nuclei form. Nuclear envelopes and nucleoli reforms. Mitotic
                   spindle breaks down.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
-                </button>
               </div>
             </div>
             <hr
@@ -217,9 +228,6 @@
                   cells), along the middle of the cell, splitting it into two
                   new daughter cells.
                 </p>
-                <button class="slot_button" @click="move_camera">
-                  Move Camera
-                </button>
               </div>
             </div>
             <hr
@@ -232,59 +240,210 @@
     <div class="routing">
       Please Wait
     </div>
-    <Renderer
-      ref="renderer"
-      antialias
-      :orbit-ctrl="{
-        enableDamping: true,
-        enablePan: false,
-        dampingFactor: 0.05,
-        maxDistance: 15,
-        minDistance: 10,
-        minPan: 3,
-      }"
-      resize="window"
-      :pointer="{ intersectRecursive: true }"
-    >
-      <Camera ref="camera" :position="{ x: 10, y: 1, z: 2 }" />
-      <Scene>
-        <SpotLight
-          color="#ffffff"
-          :position="{ y: 250, z: 0 }"
-          :cast-shadow="true"
-          :shadow-map-size="{ width: 1024, height: 1024 }"
-        />
-        <SpotLight
-          color="#ffffff"
-          :position="{ y: -150, z: 0 }"
-          :cast-shadow="true"
-          :shadow-map-size="{ width: 1024, height: 1024 }"
-        />
-        <GltfModel
-          ref="label"
-          :position="{ x: 0, y: 1, z: 2 }"
-          src="animal_cell_label.glb"
-          @progress="onProgress"
-          @load="onReady"
-        />
-        <GltfModel
-          :position="{ x: 0, y: 1, z: 2 }"
-          src="animal_cell_model.glb"
-          @progress="onProgress"
-          @load="onReady"
-        />
-        <GltfModel
-          :position="{ x: 0, y: 1, z: 2 }"
-          src="animal_cell_world.glb"
-          @progress="onProgress"
-          @load="onReady"
-        />
-      </Scene>
-      <EffectComposer>
-        <RenderPass />
-        <UnrealBloomPass :strength="0.8" :radius="1" />
-      </EffectComposer>
-    </Renderer>
+
+    // Prophase
+    <div v-show="this.prophase">
+      <Renderer
+        ref="renderer"
+        antialias
+        :orbit-ctrl="{
+          enableDamping: true,
+          enablePan: false,
+          dampingFactor: 0.05,
+          maxDistance: 15,
+          minDistance: 10,
+          minPan: 3,
+        }"
+        resize="window"
+        :pointer="{ intersectRecursive: true }"
+      >
+        <Camera ref="camera" :position="{ x: 10, y: 1, z: 2 }" />
+        <Scene>
+          <SpotLight
+            color="#ffffff"
+            :position="{ y: 250, z: 0 }"
+            :cast-shadow="true"
+            :shadow-map-size="{ width: 1024, height: 1024 }"
+          />
+          <SpotLight
+            color="#ffffff"
+            :position="{ y: -150, z: 0 }"
+            :cast-shadow="true"
+            :shadow-map-size="{ width: 1024, height: 1024 }"
+          />
+          <GltfModel
+            ref="prophase"
+            :position="{ x: 0, y: 1, z: 2 }"
+            src="Prophase.glb"
+            @progress="onProgress"
+            @load="onReady"
+          />
+          <GltfModel
+            :position="{ x: 0, y: 1, z: 2 }"
+            src="animal_cell_world.glb"
+            @progress="onProgress"
+            @load="onReady"
+          />
+        </Scene>
+        <EffectComposer>
+          <RenderPass />
+          <UnrealBloomPass :strength="0.6" :radius="1" />
+        </EffectComposer>
+      </Renderer>
+    </div>
+
+    // Anapahase
+    <div v-show="this.anaphase">
+      <Renderer
+        ref="renderer"
+        antialias
+        :orbit-ctrl="{
+          enableDamping: true,
+          enablePan: false,
+          dampingFactor: 0.05,
+          maxDistance: 15,
+          minDistance: 10,
+          minPan: 3,
+        }"
+        resize="window"
+        :pointer="{ intersectRecursive: true }"
+      >
+        <Camera ref="camera" :position="{ x: 10, y: 1, z: 2 }" />
+        <Scene>
+          <SpotLight
+            color="#ffffff"
+            :position="{ y: 250, z: 0 }"
+            :cast-shadow="true"
+            :shadow-map-size="{ width: 1024, height: 1024 }"
+          />
+          <SpotLight
+            color="#ffffff"
+            :position="{ y: -150, z: 0 }"
+            :cast-shadow="true"
+            :shadow-map-size="{ width: 1024, height: 1024 }"
+          />
+          <GltfModel
+            ref="anaphase"
+            :position="{ x: 0, y: 1, z: 2 }"
+            src="Anaphase.glb"
+            @progress="onProgress"
+            @load="onReady"
+          />
+          <GltfModel
+            :position="{ x: 0, y: 1, z: 2 }"
+            src="animal_cell_world.glb"
+            @progress="onProgress"
+            @load="onReady"
+          />
+        </Scene>
+        <EffectComposer>
+          <RenderPass />
+          <UnrealBloomPass :strength="0.6" :radius="1" />
+        </EffectComposer>
+      </Renderer>
+    </div>
+
+    // Metaphase
+    <div v-show="this.metaphase">
+      <Renderer
+        ref="renderer"
+        antialias
+        :orbit-ctrl="{
+          enableDamping: true,
+          enablePan: false,
+          dampingFactor: 0.05,
+          maxDistance: 15,
+          minDistance: 10,
+          minPan: 3,
+        }"
+        resize="window"
+        :pointer="{ intersectRecursive: true }"
+      >
+        <Camera ref="camera" :position="{ x: 10, y: 1, z: 2 }" />
+        <Scene>
+          <SpotLight
+            color="#ffffff"
+            :position="{ y: 250, z: 0 }"
+            :cast-shadow="true"
+            :shadow-map-size="{ width: 1024, height: 1024 }"
+          />
+          <SpotLight
+            color="#ffffff"
+            :position="{ y: -150, z: 0 }"
+            :cast-shadow="true"
+            :shadow-map-size="{ width: 1024, height: 1024 }"
+          />
+          <GltfModel
+            ref="metaphase"
+            :position="{ x: 0, y: 1, z: 2 }"
+            src="Metaphase.glb"
+            @progress="onProgress"
+            @load="onReady"
+          />
+          <GltfModel
+            :position="{ x: 0, y: 1, z: 2 }"
+            src="animal_cell_world.glb"
+            @progress="onProgress"
+            @load="onReady"
+          />
+        </Scene>
+        <EffectComposer>
+          <RenderPass />
+          <UnrealBloomPass :strength="0.6" :radius="1" />
+        </EffectComposer>
+      </Renderer>
+    </div>
+
+    // Telophase
+    <div v-show="this.telophase">
+      <Renderer
+        ref="renderer"
+        antialias
+        :orbit-ctrl="{
+          enableDamping: true,
+          enablePan: false,
+          dampingFactor: 0.05,
+          maxDistance: 15,
+          minDistance: 10,
+          minPan: 3,
+        }"
+        resize="window"
+        :pointer="{ intersectRecursive: true }"
+      >
+        <Camera ref="camera" :position="{ x: 10, y: 1, z: 2 }" />
+        <Scene>
+          <SpotLight
+            color="#ffffff"
+            :position="{ y: 250, z: 0 }"
+            :cast-shadow="true"
+            :shadow-map-size="{ width: 1024, height: 1024 }"
+          />
+          <SpotLight
+            color="#ffffff"
+            :position="{ y: -150, z: 0 }"
+            :cast-shadow="true"
+            :shadow-map-size="{ width: 1024, height: 1024 }"
+          />
+          <GltfModel
+            ref="metaphase"
+            :position="{ x: 1, y: 1, z: 2 }"
+            src="Telophase.glb"
+            @progress="onProgress"
+            @load="onReady"
+          />
+          <GltfModel
+            :position="{ x: 0, y: 1, z: 2 }"
+            src="animal_cell_world.glb"
+            @progress="onProgress"
+            @load="onReady"
+          />
+        </Scene>
+        <EffectComposer>
+          <RenderPass />
+          <UnrealBloomPass :strength="0.6" :radius="1" />
+        </EffectComposer>
+      </Renderer>
+    </div>
   </div>
 </template>
 
@@ -324,6 +483,10 @@ export default {
       microfilaments_tab: false,
       vacuole_tab: false,
       tonoplast_tab: false,
+      prophase: true,
+      anaphase: false,
+      metaphase: false,
+      telophase: false,
     };
   },
   components: {
@@ -342,8 +505,33 @@ export default {
   mounted() {
     console.log("Hello");
     console.log(this.$refs.camera.camera.position.x);
+    console.clear();
   },
   methods: {
+    toggle_prophase() {
+      this.prophase = true;
+      this.anaphase = false;
+      this.metaphase = false;
+      this.telophase = false;
+    },
+    toggle_anaphase() {
+      this.anaphase = true;
+      this.prophase = false;
+      this.metaphase = false;
+      this.telophase = false;
+    },
+    toggle_metaphase() {
+      this.metaphase = true;
+      this.prophase = false;
+      this.anaphase = false;
+      this.telophase = false;
+    },
+    toggle_telophase() {
+      this.telophase = true;
+      this.prophase = false;
+      this.anaphase = false;
+      this.metaphase = false;
+    },
     move_camera() {
       console.log(this.$refs.camera.camera.position.z);
       console.log(this.$refs.camera.camera.position.y);
@@ -394,6 +582,30 @@ export default {
 };
 </script>
 <style>
+.stages_parent {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+  top: 0%;
+  right: 5%;
+  height: 100vh;
+  place-content: center;
+}
+.stages_container {
+  display: flex;
+  flex-direction: column;
+}
+.stages_button {
+  margin: 10px 0 10px 0;
+  padding: 10px 0 10px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
 .loader_routes {
   z-index: 102;
   background: red;
