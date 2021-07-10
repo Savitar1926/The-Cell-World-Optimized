@@ -5,6 +5,7 @@ import VueProgressBar from 'vue-progressbar'
 import { StatusBar } from '@capacitor/status-bar'
 
 
+
 StatusBar.hide();
 
 createApp(App).use(router, VueProgressBar, {

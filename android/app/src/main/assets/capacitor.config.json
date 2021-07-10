@@ -1,6 +1,6 @@
 {
 	"appId": "cell.world",
-	"appName": "Move Cell World",
+	"appName": "Cell World",
 	"webDir": "dist",
 	"bundledWebRuntime": false
 }
