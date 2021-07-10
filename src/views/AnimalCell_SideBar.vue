@@ -1079,7 +1079,7 @@ export default {
 };
 </script>
 <style>
-.full_screen {
+.full_screen_button {
   z-index: 1010;
   position: absolute;
   bottom: 5%;
