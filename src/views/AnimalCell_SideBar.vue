@@ -12,6 +12,7 @@
           />
         </button>
       </div>
+
       <div>
         <button class="show_button" @click="toggle_label">
           <p v-if="this.label">Hide Label</p>
@@ -917,6 +918,7 @@ export default {
       reference: false,
       show_reference: false,
       terms: true,
+      fullscreen: false,
     };
   },
   components: {
@@ -1050,6 +1052,14 @@ export default {
       this.reference = false;
       this.terms = true;
     },
+    go_full_screen() {
+      this.fulscreen = !this.fulscreen;
+      if (this.fullscreen == true) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    },
   },
   watch: {
     $route(to, from) {
@@ -1069,6 +1079,13 @@ export default {
 };
 </script>
 <style>
+.full_screen {
+  z-index: 1010;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .reference_sub {
   font-size: 9px;
   color: #fff;

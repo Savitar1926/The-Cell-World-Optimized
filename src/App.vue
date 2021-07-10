@@ -15,6 +15,15 @@
       </div>
     </div>
     <div class="landscape">
+      <div class="full_screen ">
+        <button
+          class="full_screen_button"
+          @click="fullScreenMode = !fullScreenMode"
+        >
+          <p v-if="!this.fullScreenMode">Enter Full Screen</p>
+          <p v-else>Exit Full Screen</p>
+        </button>
+      </div>
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
@@ -41,6 +50,7 @@ export default {
       loading: false,
       route: this.$route.name,
       orientation: true,
+      fullScreenMode: false,
     };
   },
   components: {
@@ -63,20 +73,19 @@ export default {
         console.log("landscape");
         this.orientation = true;
       }
-      // if (to.path == '/plantcell'){
-      //   this.animalCellToggle = false
-      //   this.toggle = false;
-      // } else if (to.path == '/') {
-      //   this.toggle = false;
-      // } else {
-      //   this.toggle = false;
-      // }
     },
     checkRoute() {
       console.log(this.$route.name);
     },
     checkOrientation() {
       this.handleOrientationChange();
+    },
+    fullScreenMode: function() {
+      if (this.fullScreenMode == true) {
+        this.openFullscreen();
+      } else {
+        this.closeFullscreen();
+      }
     },
   },
   beforeUpdate() {
@@ -96,11 +105,46 @@ export default {
         this.orientation = true;
       }
     },
+    openFullscreen: function() {
+      var elem = document.documentElement;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+      }
+    },
+
+    closeFullscreen: function() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+    },
   },
 };
 </script>
 
 <style>
+.full_screen_button {
+  border: none;
+  border-radius: 15px;
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+}
 .portrait {
   z-index: 1000;
   background-color: #030303;
