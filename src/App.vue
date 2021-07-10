@@ -15,15 +15,13 @@
       </div>
     </div>
     <div class="landscape">
-      <div class="full_screen ">
-        <button
-          class="full_screen_button"
-          @click="fullScreenMode = !fullScreenMode"
-        >
-          <p v-if="!this.fullScreenMode">Enter Full Screen</p>
-          <p v-else>Exit Full Screen</p>
+    <button 
+          class="full_screen_button" 
+          @click="fullScreenMode = !fullScreenMode" 
+        > 
+          <p v-if="!this.fullScreenMode">Enter Full Screen</p> 
+          <p v-else>Exit Full Screen</p> 
         </button>
-      </div>
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
