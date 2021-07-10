@@ -40,7 +40,6 @@
       <div class="sidebar_parent" v-if="toggle">
         <div class="sidebar_container">
           <div class="animalcell_content">
-            // Mitosis
             <div class="animal_slots">
               <div class="title-container">
                 <p
@@ -76,7 +75,7 @@
             <hr
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
-            // Interphase
+
             <div class="animal_slots">
               <div
                 class="title-container"
@@ -133,7 +132,7 @@
             <hr
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
-            // Stages of mitosis
+
             <div class="animal_slots">
               <div
                 class="title-container"
@@ -215,7 +214,7 @@
             <hr
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
-            // Cytokinesis
+
             <div class="animal_slots">
               <div
                 class="title-container"
@@ -251,18 +250,16 @@
             </div>
             <p class="reference_title">
               Mitosis - Definition, Diagram &amp; Stages of Mitosis. (n.d.).
-              Retrieved from Byju&#39;s: https://byjus.com/biology/mitosis/
+              Retrieved from Byju&#39;s: https:
             </p>
             <p class="reference_title">
-              Phases of cell cycle. (n.d.). Retrieved from Khan Academy:
-              https://www.khanacademy.org/science/ap-biology/cell-
+              Phases of cell cycle. (n.d.). Retrieved from Khan Academy: https:
             </p>
             <p class="reference_sub">
               communication-and-cell-cycle/cell-cycle/a/cell-cycle-phases
             </p>
             <p class="reference_title">
-              Phases of mitosis. (n.d.). Retrieved from Khan Academy:
-              https://www.khanacademy.org/science/ap-biology/cell-
+              Phases of mitosis. (n.d.). Retrieved from Khan Academy: https:
             </p>
             <p class="reference_sub">
               communication-and-cell-cycle/cell-cycle/a/phases-of-mitosis
@@ -275,7 +272,6 @@
       Please Wait
     </div>
 
-    // Prophase
     <Renderer
       ref="renderer"
       antialias
@@ -451,11 +447,6 @@ export default {
       console.log("Route changed from " + from.path + " to " + to.path);
       gsap.to("canvas", { x: "0%", duration: 0.5, ease: "expo.out" });
       gsap.to(".nav_button", { left: "3%", duration: 0.5, ease: "expo.out" });
-      // if (to.path == '/plantcell'){
-      //   this.animalCellToggle = false
-      // } else if (to.path == '/') {
-      //   this.animalCellToggle = true
-      // }
     },
   },
 };

@@ -219,7 +219,6 @@
             </p>
           </div>
           <div class="animalcell_content" v-show="this.terms">
-            // Animal Cell
             <div class="animal_top">
               <div class="title-container">
                 <p
@@ -263,7 +262,6 @@
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
 
-            // Cell Membrane
             <div class="animal_slots">
               <div
                 class="title-container"
@@ -358,7 +356,7 @@
             <hr
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
-            // Nucleus
+
             <div class="animal_slots">
               <div
                 class="title-container"
@@ -440,7 +438,6 @@
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
 
-            // Cytoplasm
             <div class="animal_slots">
               <div
                 class="title-container"
@@ -487,7 +484,6 @@
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
 
-            // Subcellular Parts
             <p
               class="title"
               style="color: '#ffffff; letter-spacing: 2px; font-weight: 900 "
@@ -498,7 +494,6 @@
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
 
-            // Mitochondria
             <div class="animal_slots">
               <div
                 class="title-container"
@@ -538,7 +533,6 @@
             <hr
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
-            // Ribosomes
             <div class="animal_slots">
               <div
                 class="title-container"
@@ -584,7 +578,7 @@
             <hr
               style="width: 100%; border: 1px solid #535353; border-radius: 15px;  margin-bottom: -2px"
             />
-            // Endoplasmic reticulum
+
             <div class="animal_slots">
               <div class="title-container" @click="this.er_tab = !this.er_tab">
                 <p class="title" style="color: '#ffffff;">
@@ -605,7 +599,6 @@
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
 
-            // Golgi Apparatus
             <div class="animal_slots">
               <div
                 class="title-container"
@@ -633,7 +626,6 @@
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
 
-            // Microtubules
             <div class="animal_slots">
               <div
                 class="title-container"
@@ -684,7 +676,6 @@
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
 
-            // Microbodies
             <div class="animal_slots">
               <div
                 class="title-container"
@@ -754,7 +745,6 @@
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
 
-            // Microfilaments
             <div class="animal_slots">
               <div
                 class="title-container"
@@ -782,7 +772,6 @@
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
 
-            // Vacuole
             <div class="animal_slots">
               <div
                 class="title-container"
@@ -808,7 +797,6 @@
               style="width: 100%; border: 1px solid #535353; border-radius: 15px; margin-bottom: -2px"
             />
 
-            // Tonoplast
             <div class="animal_slots">
               <div
                 class="title-container"
@@ -1179,7 +1167,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: -15px 0 -15px 0;
+  margin: -5px 0 -15px 0;
 }
 .title {
   color: #ffffff;
