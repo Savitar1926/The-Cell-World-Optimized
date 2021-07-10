@@ -307,7 +307,7 @@
         <GltfModel
           ref="prophase"
           :position="{ x: 0, y: 1, z: 2 }"
-          src="Prophase.glb"
+          src="Anaphase.glb"
           @progress="onProgress"
           @load="onReady"
         />

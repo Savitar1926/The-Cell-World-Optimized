@@ -20,13 +20,211 @@
       </div>
       <div class="sidebar_parent" v-if="toggle">
         <div class="sidebar_container">
-          <div class="animalcell_content">
+          <div v-show="this.reference">
+            <button
+              style="color: #030303; background-color: #fff; border: none; border-radius: 10px; padding: 10px; cursor: pointer; font-weight: bold;"
+              @click="back_to_cell"
+            >
+              Back to Plant Cell
+            </button>
+            <p
+              class="title"
+              style="color: '#ffffff; font-family: Bebas; font-size: 45px; margin-bottom: 10px; letter-spacing: 4px;"
+            >
+              References
+            </p>
+            <p class="reference_title">
+              Amyloplast. (n.d.). Retrieved from UniProt:
+            </p>
+            <p class="reference_sub">
+              https://www.uniprot.org/locations/12#:~:text=The%20amyloplast%20is%20a%20colorless,are%20n
+              ot%20capable%20of%20photosynthesis.
+            </p>
+            <p class="reference_title">
+              Animal Cell - Structure, Function, Diagram and Types. (n.d.).
+              Retrieved from Byju&#39;s:
+            </p>
+            <p class="reference_sub">
+              https://byjus.com/biology/animal-cell/
+            </p>
+            <p class="reference_title">
+              Arora, S. (n.d.). Plastids: Types, Structure and Function (With
+              Diagram). Retrieved from Biology
+            </p>
+            <p class="reference_sub">
+              Discussion:
+              https://www.biologydiscussion.com/plastids/plastids-types-structure-and-
+              function-with-diagram/38591
+            </p>
+            <p class="reference_title">
+              Bailey, R. (2019, December 03). The Structure . Retrieved from
+              Thought Co.:
+            </p>
+            <p class="reference_sub">
+              https://www.thoughtco.com/endoplasmic-reticulum-373365
+            </p>
+            <p class="reference_title">
+              Biologydictionary.net Editors. (2017, March 20). Cytosol -
+              Definition, Function &amp; Quiz. Retrieved from
+            </p>
+            <p class="reference_sub">
+              Biology Dictionary: https://biologydictionary.net/cytosol/
+            </p>
+            <p class="reference_title">
+              Biologydictionary.net Editors. (2017, April 05). Microtubule -
+              Definition, Function, Structure &amp; Quiz.
+            </p>
+            <p class="reference_sub">
+              Retrieved from Biology Dictionary:
+              https://biologydictionary.net/microtubule/
+            </p>
+            <p class="reference_title">
+              Biologydictionary.net Editors. (2021, March 31). Cell Organelles
+              (Animal and Plant) - The Definitive
+            </p>
+            <p class="reference_sub">
+              Guide. Retrieved from Biology Dictionary:
+              https://biologydictionary.net/cell-organelles- plants-and-animals/
+            </p>
+            <p class="reference_title">
+              Cell Junction - Definition and Examples. (n.d.). Retrieved from
+              Biology Online:
+            </p>
+            <p class="reference_sub">
+              https://www.biologyonline.com/dictionary/cell-junction
+            </p>
+            <p class="reference_title">
+              Cell Wall - Definition, Cell Wall Functions, Cell Wall Layers.
+              (n.d.). Retrieved from Byju&#39;s:
+            </p>
+            <p class="reference_sub">
+              https://byjus.com/biology/cell-wall/
+            </p>
+            <p class="reference_title">
+              Cell-cell junctions. (n.d.). Retrieved from Khan Academy:
+              https://www.khanacademy.org/science/ap-
+            </p>
+            <p class="reference_sub">
+              biology/cell-communication-and-cell-cycle/cell-communication/a/cell-cell-junctions
+            </p>
+            <p class="reference_title">
+              Cilia. (n.d.). Retrieved from Ciliopathy Alliance:
+              https://www.ciliopathyalliance.org/cilia
+            </p>
+            <p class="reference_title">
+              Ctyoplasm - An Overview of its Structure and Functions. (n.d.).
+              Retrieved from Byju&#39;s:
+            </p>
+            <p class="reference_sub">
+              https://byjus.com/biology/cytoplasm-structure-function/
+            </p>
+            <p class="reference_title">
+              Elaioplast Definition and Examples. (n.d.). Retrieved from Biology
+              Online:
+            </p>
+            <p class="reference_sub">
+              https://www.biologyonline.com/dictionary/elaioplast
+            </p>
+            <p class="reference_title">
+              Flagella - Structure, Types and Function of Flagella. (n.d.).
+              Retrieved from Byju&#39;s:
+            </p>
+            <p class="reference_sub">
+              https://byjus.com/biology/flagella/
+            </p>
+            <p class="reference_title">
+              Glyoxysome. (n.d.). Retrieved from Wikipedia:
+            </p>
+            <p class="reference_sub">
+              https://en.wikipedia.org/wiki/Glyoxysome#:~:text=Glyoxysomes%20are%20specialized%20peroxiso
+              mes%20found,and%20also%20in%20filamentous%20fungi.&amp;text=The%20seedling%20uses%
+              20these%20sugars,to%20produce%20them%20by%20photosynthesis.
+            </p>
+            <p class="reference_title">
+              Golgi Apparatus and its Functions in Animal cell and Plant cell.
+              (n.d.). Retrieved from Byju&#39;s:
+            </p>
+            <p class="reference_sub">
+              https://byjus.com/biology/golgi-apparatus/
+            </p>
+            <p class="reference_title">
+              Heldt, H.-W., &amp; Piechulla, B. (2021). Suberin - an overview.
+              Retrieved from ScienceDirect:
+            </p>
+            <p class="reference_sub">
+              hhttps://www.sciencedirect.com/topics/agricultural-and-biological-sciences/suberin
+            </p>
+            <p class="reference_title">
+              Lignin. (n.d.). Retrieved from Wikipedia:
+              https://en.wikipedia.org/wiki/Lignin
+            </p>
+            <p class="reference_title">
+              Nucleoplasm - Difference Between Cytoplasm and Nucleoplasm.
+              (n.d.). Retrieved from Byju&#39;s:
+            </p>
+            <p class="reference_sub">
+              https://byjus.com/biology/nucleoplasm/
+            </p>
+            <p class="reference_title">
+              Plant Cells - Definition, Diagram, Structure &amp; Function.
+              (n.d.). Retrieved from Byju&#39;s:
+            </p>
+            <p class="reference_sub">
+              https://byjus.com/biology/plant-cell/
+            </p>
+            <p class="reference_title">
+              Plant Life: Microbodies. (2011, March). Retrieved from Life of
+              Plant:
+            </p>
+            <p class="reference_sub">
+              http://lifeofplant.blogspot.com/2011/03/microbodies.html
+            </p>
+            <p class="reference_title">
+              Plastids - Different types of Plastids and their functions in
+              Plants Cell. (n.d.). Retrieved from Byju&#39;s:
+            </p>
+            <p class="reference_sub">
+              https://byjus.com/biology/plastids/
+            </p>
+            <p class="reference_title">
+              Sadali, N. M., Robert G. Sowden, Q. L., &amp; Jarvis, R. P. (2019,
+              May 11). Differentiation of chromoplasts
+            </p>
+            <p class="reference_sub">
+              and other plastids in plants. Retrieved from SpringerLink:
+              https://link.springer.com/article/10.1007/s00299-019-02420-2
+            </p>
+            <p class="reference_title">
+              Spherosome. (n.d.). Retrieved from Wikipedia:
+              https://en.wikipedia.org/wiki/Spherosome
+            </p>
+            <p class="reference_title">
+              Stroma (fluid). (n.d.). Retrieved from Wikipedia:
+              https://en.wikipedia.org/wiki/Stroma_(fluid)
+            </p>
+            <p class="reference_title">
+              What is a chromatin network? (n.d.). Retrieved from Byju&#39;s:
+              https://byjus.com/questions/what-is-a-
+            </p>
+            <p class="reference_sub">
+              chromatin-network/
+            </p>
+            <p class="reference_title">
+              Xiao, C., &amp; Anderson, C. T. (2013, March 27). Roles of pectin
+              in biomass yield and processing for
+            </p>
+            <p class="reference_sub">
+              biofuels. Retrieved from Frontiers:
+              https://www.frontiersin.org/articles/10.3389/fpls.2013.00067/full
+            </p>
+          </div>
+          <div class="animalcell_content" v-show="this.terms">
             // Plant Cell
             <div class="animal_slots">
               <div class="title-container">
                 <p
                   class="title"
-                  style="color: '#ffffff; font-family: Bebas; font-size: 45px; margin-bottom: 10px; letter-spacing: 4px;"
+                  style="color: #ffffff; font-family: Bebas; font-size: 45px; margin-bottom: 10px; letter-spacing: 4px;"
                 >
                   Plant Cell
                 </p>
@@ -50,6 +248,13 @@
                     Explore Mitosis
                   </button>
                 </router-link>
+                <button
+                  class="animal_button"
+                  style="margin-top: 12px; background: #fff; color: #000"
+                  @click="toggle_pane"
+                >
+                  Show References
+                </button>
               </div>
             </div>
             <hr
@@ -874,6 +1079,9 @@ export default {
       dna_tab: false,
       showclick: true,
       label: true,
+      reference: false,
+      show_reference: false,
+      terms: true,
     };
   },
   components: {
@@ -1029,6 +1237,17 @@ export default {
         duration: 0.5,
         ease: "expo.out",
       });
+    },
+    toggle_reference() {
+      this.reference = true;
+    },
+    toggle_pane() {
+      this.reference = true;
+      this.terms = false;
+    },
+    back_to_cell() {
+      this.reference = false;
+      this.terms = true;
     },
   },
   watch: {

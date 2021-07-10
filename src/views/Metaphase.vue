@@ -15,7 +15,7 @@
       <div class="stages_parent">
         <div class="stages_container">
           <p style="color: #fff;">Stages of Mitosis</p>
-          <router-link :to="{ name: 'Prophase' }">
+          <router-link :to="{ name: 'Mitosis' }">
             <button class="stages_button">
               <p>Prophase</p>
             </button>
@@ -307,7 +307,7 @@
         <GltfModel
           ref="prophase"
           :position="{ x: 0, y: 1, z: 2 }"
-          src="Prophase.glb"
+          src="Metaphase.glb"
           @progress="onProgress"
           @load="onReady"
         />
