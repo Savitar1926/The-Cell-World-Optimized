@@ -15,19 +15,19 @@
       <div class="stages_parent">
         <div class="stages_container">
           <p style="color: #fff;">Stages of Mitosis</p>
-          <router-link :to="{ name: 'Mitosis' }">
+          <router-link :to="{ name: 'Prophase' }">
             <button class="stages_button">
               <p>Prophase</p>
-            </button>
-          </router-link>
-          <router-link :to="{ name: 'Anaphase' }">
-            <button class="stages_button">
-              <p>Anaphase</p>
             </button>
           </router-link>
           <router-link :to="{ name: 'Metaphase' }">
             <button class="stages_button">
               <p>Metaphase</p>
+            </button>
+          </router-link>
+          <router-link :to="{ name: 'Anaphase' }">
+            <button class="stages_button">
+              <p>Anaphase</p>
             </button>
           </router-link>
           <router-link :to="{ name: 'Telophase' }">
@@ -296,6 +296,13 @@
         />
         <SpotLight
           color="#ffffff"
+          :position="{ x: 5.4, y: -0.7, z: -9 }"
+          :cast-shadow="true"
+          :intensity="0.5"
+          :shadow-map-size="{ width: 1024, height: 1024 }"
+        />
+        <SpotLight
+          color="#ffffff"
           :position="{ y: -150, z: 0 }"
           :cast-shadow="true"
           :shadow-map-size="{ width: 1024, height: 1024 }"
@@ -303,20 +310,20 @@
         <GltfModel
           ref="prophase"
           :position="{ x: 0, y: 1, z: 2 }"
-          src="Metaphase.glb"
+          src="Metaphase_1.glb"
           @progress="onProgress"
           @load="onReady"
         />
         <GltfModel
           :position="{ x: 0, y: 1, z: 2 }"
-          src="animal_cell_world.glb"
+          src="plant_cell_world.glb"
           @progress="onProgress"
           @load="onReady"
         />
       </Scene>
       <EffectComposer>
         <RenderPass />
-        <UnrealBloomPass :strength="0.6" :radius="1" />
+        <UnrealBloomPass :strength="0.5" :radius="1" />
       </EffectComposer>
     </Renderer>
   </div>

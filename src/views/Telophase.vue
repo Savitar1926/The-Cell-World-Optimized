@@ -20,14 +20,14 @@
               <p>Prophase</p>
             </button>
           </router-link>
-          <router-link :to="{ name: 'Anaphase' }">
-            <button class="stages_button">
-              <p>Anaphase</p>
-            </button>
-          </router-link>
           <router-link :to="{ name: 'Metaphase' }">
             <button class="stages_button">
               <p>Metaphase</p>
+            </button>
+          </router-link>
+          <router-link :to="{ name: 'Anaphase' }">
+            <button class="stages_button">
+              <p>Anaphase</p>
             </button>
           </router-link>
           <router-link :to="{ name: 'Telophase' }">
@@ -301,16 +301,24 @@
           :cast-shadow="true"
           :shadow-map-size="{ width: 1024, height: 1024 }"
         />
+        <SpotLight
+          color="#ffffff"
+          :position="{ x: 5.4, y: -0.7, z: -9 }"
+          :cast-shadow="true"
+          :shadow-map-size="{ width: 1024, height: 1024 }"
+          :intensity="0.5"
+        />
         <GltfModel
           ref="prophase"
           :position="{ x: 0, y: 1, z: 2 }"
-          src="Telophase.glb"
+          :intensity="0.5"
+          src="Telophase_1.glb"
           @progress="onProgress"
           @load="onReady"
         />
         <GltfModel
           :position="{ x: 0, y: 1, z: 2 }"
-          src="animal_cell_world.glb"
+          src="plant_cell_world.glb"
           @progress="onProgress"
           @load="onReady"
         />
