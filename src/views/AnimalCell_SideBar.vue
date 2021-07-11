@@ -1079,12 +1079,14 @@ export default {
 };
 </script>
 <style>
-.full_screen_button {
-  z-index: 1010;
-  position: absolute;
-  bottom: 5%;
+.button_always_present {
+  z-index: 2000;
+  position: fixed;
+  bottom: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  gap: 40px;
 }
 .reference_sub {
   font-size: 9px;

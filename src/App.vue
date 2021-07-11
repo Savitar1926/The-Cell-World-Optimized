@@ -15,13 +15,28 @@
       </div>
     </div>
     <div class="landscape">
-      <button
-        class="full_screen_button"
-        @click="fullScreenMode = !fullScreenMode"
-      >
-        <p v-if="!this.fullScreenMode">Enter Full Screen</p>
-        <p v-else>Exit Full Screen</p>
-      </button>
+      <div style="position: absolute; z-index: 1200;" v-if="this.show_video">
+        <video class="video_player" controls autoplay>
+          <source src="./assets/ohlala.mp4" type="video/mp4" />
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+      </div>
+      <div class="button_always_present">
+        <button
+          class="full_screen_button"
+          @click="this.show_video = !this.show_video"
+        >
+          <p v-if="!this.show_video">Take a Guided Tour</p>
+          <p v-else>Close Guided Tour</p>
+        </button>
+        <button
+          class="full_screen_button_view"
+          @click="fullScreenMode = !fullScreenMode"
+        >
+          <p v-if="!this.fullScreenMode">Enter Full Screen</p>
+          <p v-else>Exit Full Screen</p>
+        </button>
+      </div>
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
@@ -49,6 +64,7 @@ export default {
       route: this.$route.name,
       orientation: true,
       fullScreenMode: false,
+      show_video: false,
     };
   },
   components: {
@@ -132,6 +148,27 @@ export default {
 </script>
 
 <style>
+video::-webkit-media-controls-fullscreen-button {
+  display: none;
+}
+.video_player {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+.full_screen_button_view {
+  border: none;
+  border-radius: 15px;
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+}
 .full_screen_button {
   border: none;
   border-radius: 15px;
