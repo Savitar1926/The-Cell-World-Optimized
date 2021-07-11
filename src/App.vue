@@ -17,7 +17,27 @@
     <div class="landscape">
       <div style="position: absolute; z-index: 1200;" v-if="this.show_video">
         <video class="video_player" controls autoplay>
-          <source src="./assets/ohlala.mp4" type="video/mp4" />
+          <source
+            v-if="$route.name == 'Animal Cell'"
+            src="./assets/ohlala.mp4"
+            type="video/mp4"
+          />
+          <source
+            v-if="$route.name == 'Plant Cell'"
+            src="./assets/PT_Antipuesto.mp4"
+            type="video/mp4"
+          />
+          <source
+            v-if="
+              $route.name == 'Mitosis' ||
+                'Prophase' ||
+                'Anaphase' ||
+                'Metaphase' ||
+                'Telophase'
+            "
+            src="./assets/Sample_Sunday.mp4"
+            type="video/mp4"
+          />
           Sorry, your browser doesn't support embedded videos.
         </video>
       </div>
