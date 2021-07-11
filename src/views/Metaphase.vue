@@ -463,7 +463,7 @@ export default {
   position: absolute;
   display: flex;
   flex-direction: column;
-  z-index: 1001;
+  z-index: 999;
   top: 0%;
   right: 5%;
   height: 100vh;

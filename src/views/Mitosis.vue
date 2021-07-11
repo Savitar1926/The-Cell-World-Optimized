@@ -13,7 +13,7 @@
         </button>
       </div>
       <div class="stages_parent">
-        <div class="stages_container">
+        <div class="stages_container" v-if="this.orientation">
           <p style="color: #fff;">Stages of Mitosis</p>
           <router-link :to="{ name: 'Prophase' }">
             <button class="stages_button">
@@ -371,6 +371,7 @@ export default {
       anaphase: false,
       metaphase: false,
       telophase: false,
+      orientation: true,
     };
   },
   components: {
@@ -392,6 +393,16 @@ export default {
     console.clear();
   },
   methods: {
+    handleOrientationChange() {
+      const orientation = window.screen.orientation.type;
+      if (orientation === "portrait-primary") {
+        console.log("portarit");
+        this.orientation = false;
+      } else if (orientation === "landscape-primary") {
+        console.log("landscape");
+        this.orientation = true;
+      }
+    },
     toggle_prophase() {
       this.prophase = true;
       this.anaphase = false;
@@ -461,6 +472,9 @@ export default {
       gsap.to("canvas", { x: "0%", duration: 0.5, ease: "expo.out" });
       gsap.to(".nav_button", { left: "3%", duration: 0.5, ease: "expo.out" });
     },
+    checkOrientation() {
+      this.handleOrientationChange();
+    },
   },
 };
 </script>
@@ -469,7 +483,7 @@ export default {
   position: absolute;
   display: flex;
   flex-direction: column;
-  z-index: 1001;
+  z-index: 999;
   top: 0%;
   right: 5%;
   height: 100vh;
