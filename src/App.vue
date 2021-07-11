@@ -25,6 +25,7 @@
         <button
           class="full_screen_button"
           @click="this.show_video = !this.show_video"
+          v-show="this.orientation"
         >
           <p v-if="!this.show_video">Take a Guided Tour</p>
           <p v-else>Close Guided Tour</p>
