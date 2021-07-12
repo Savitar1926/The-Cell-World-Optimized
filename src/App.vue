@@ -19,12 +19,12 @@
         <video class="video_player" controls autoplay>
           <source
             v-if="$route.name == 'Animal Cell'"
-            src="./assets/ohlala.mp4"
+            src="./assets/AnimalCell.mp4"
             type="video/mp4"
           />
           <source
             v-if="$route.name == 'Plant Cell'"
-            src="./assets/PT_Antipuesto.mp4"
+            src="./assets/PlantCell.mp4"
             type="video/mp4"
           />
           <source
@@ -35,7 +35,7 @@
                 'Metaphase' ||
                 'Telophase'
             "
-            src="./assets/Sample_Sunday.mp4"
+            src="./assets/Mitosis.mp4"
             type="video/mp4"
           />
           Sorry, your browser doesn't support embedded videos.
